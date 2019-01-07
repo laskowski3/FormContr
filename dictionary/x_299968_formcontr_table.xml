@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element label="formContr Table" max_length="40" name="x_299968_formcontr_table" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="Name" mandatory="true" max_length="40" name="name" type="string"/>
         <element default="javascript:current.getTableName();" label="Class" max_length="80" name="sys_class_name" type="sys_class_name"/>
+        <element attributes="edge_encryption_enabled=true" label="First Name" max_length="40" name="u_first_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Last Name" max_length="40" name="u_last_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Option 1" max_length="40" name="u_option_1" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Option 2" max_length="40" name="u_option_2" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Option 2 Continued" mandatory="true" max_length="40" name="u_option_2_continued" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="option 1" label="Select Form" mandatory="true" max_length="40" name="u_select_form" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Option 1" sequence="0" value="option 1"/>
+                <element inactive_on_update="false" label="Option 2" sequence="1" value="option 2"/>
+            </choice>
+        </element>
         <index name="index">
             <element name="sys_class_name"/>
         </index>

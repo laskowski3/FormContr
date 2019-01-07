@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>Populate common fields based on answers from the previously completed records</description>
+        <field>sys_class_name</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>populateCommonFields</name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+   var getLastRecord = new GlideAjax('LastRecord');
+	getLastRecord.addParam('sysparm_name', 'getRecord');
+	getLastRecord.getXML(getFields);
+
+
+	function getFields(response){
+		var result = response.responseXML.documentElement.getAttribute("answer");
+		var rec = JSON.parse(result);
+		if(rec && g_form.isNewRecord()){
+			g_form.clearValue('u_first_name');
+			g_form.clearValue('u_last_name');
+			g_form.setValue('u_first_name', rec.first_name);
+			g_form.setValue('u_last_name', rec.last_name);
+		}
+	}
+}
+]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-01-04 09:35:18</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>b545d9290f722300bd20ba8ce1050e66</sys_id>
+        <sys_mod_count>27</sys_mod_count>
+        <sys_name>populateCommonFields</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="formContr" source="x_299968_formcontr">b3fe19f6db522300bd4da0f2ca961917</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="formContr">b3fe19f6db522300bd4da0f2ca961917</sys_scope>
+        <sys_update_name>sys_script_client_b545d9290f722300bd20ba8ce1050e66</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-01-07 09:33:42</sys_updated_on>
+        <table>x_299968_formcontr_table</table>
+        <type>onLoad</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>
