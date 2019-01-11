@@ -3,6 +3,7 @@
         <element attributes="edge_encryption_enabled=true" label="Name" mandatory="true" max_length="40" name="name" type="string"/>
         <element default="javascript:current.getTableName();" label="Class" max_length="80" name="sys_class_name" type="sys_class_name"/>
         <element attributes="edge_encryption_enabled=true" label="First Name" max_length="40" name="u_first_name" type="string"/>
+        <element label="New Date" max_length="40" name="u_glide_date_1" type="glide_date"/>
         <element attributes="edge_encryption_enabled=true" label="Last Name" max_length="40" name="u_last_name" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Option 1" max_length="40" name="u_option_1" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Option 2" max_length="40" name="u_option_2" type="string"/>
